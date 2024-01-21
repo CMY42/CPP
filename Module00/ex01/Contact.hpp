@@ -1,36 +1,25 @@
 #ifndef CONTACT_HPP
-# define CONTACT_HPP
+#define CONTACT_HPP
 
 #include <string>
 
 class Contact
 {
-private:
-	std::string FirstName;
-	std::string LastName;
-	std::string Nickname;
-	std::string PhoneNumber;
-	std::string DarkestSecret;
-
 public:
 	Contact();
-	Contact(const std::string& first, const std::string& last, const std::string& nick,
-			const std::string& phone, const std::string& secret); // Constructeur surchargé
+	~Contact();
 
-	// Méthodes pour accéder et manipuler les données des contacts
-	void displayShortInfo(int index) const;
-	void displayFullInfo() const;
-	bool isEmpty() const;
-	void setContact(const std::string& first, const std::string& last, const std::string& nick,
-				const std::string& phone, const std::string& secret);
-	// ... (d'autres méthodes nécessaires)
+	void setContactInfo();
+	void displayContactInfo(int index) const;
+	std::string truncateText(const std::string& text, size_t width) const;
+	void displayFullContactInfo() const;
 
-	// Méthodes pour accéder aux données des contacts
-	std::string getFirstName() const;
-	std::string getLastName() const;
-	std::string getNickname() const;
-	std::string getPhoneNumber() const;
-	std::string getDarkestSecret() const;
+private:
+	std::string firstName;
+	std::string lastName;
+	std::string nickname;
+	std::string phoneNumber;
+	std::string darkestSecret;
 };
 
-#endif // CONTACT_HPP
+#endif

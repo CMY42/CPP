@@ -1,9 +1,9 @@
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror
 
 SRCS = main.cpp PhoneBook.cpp Contact.cpp
 OBJS = $(SRCS:.cpp=.o)
-TARGET = phonebook
+TARGET = PhoneBook
 
 .PHONY: all clean fclean re
 
@@ -22,3 +22,5 @@ fclean: clean
 	rm -f $(TARGET)
 
 re: fclean all
+
+.PHONY: all clean fclean re
