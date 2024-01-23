@@ -1,17 +1,14 @@
 #include "Zombie.hpp"
 #include <iostream>
 
-extern Zombie *zombieHorde(int N, std::string name);
-
 int main()
 {
-	const int hordeSize = 5;
-	Zombie *horde = zombieHorde(hordeSize, "Horde Zombie");
+	int N = 5;
+	Zombie* horde = zombieHorde(N, "ZombieName");
 
-	for (int i = 0; i < hordeSize; ++i)
+	for (int i = 0; i < N; ++i)
 		horde[i].announce();
 
 	delete[] horde;
-
 	return 0;
 }

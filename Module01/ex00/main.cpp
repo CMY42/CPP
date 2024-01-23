@@ -1,11 +1,12 @@
 #include "Zombie.hpp"
 
-int main() {
-    Zombie* heapZombie = newZombie("HeapZombie");
-    heapZombie->announce();
-    delete heapZombie; // Important pour éviter les fuites de mémoire
+int main()
+{
+	Zombie* heapZombie = newZombie("HeapZombie");
+	heapZombie->announce();
+	delete heapZombie;
 
-    randomChump("StackZombie");
+	randomChump("StackZombie");
 
-    return 0;
+	return 0;
 }

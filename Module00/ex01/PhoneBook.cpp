@@ -26,7 +26,7 @@ void PhoneBook::addContact()
 void PhoneBook::searchContacts() const
 {
 	if (numContacts == 0)
-    {
+	{
 		std::cout << "PhoneBook is empty." << std::endl;
 		return;
 	}
