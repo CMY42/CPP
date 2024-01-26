@@ -1,6 +1,6 @@
-NAME = violence
+NAME = sed
 
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS = main.cpp SedReplace.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
