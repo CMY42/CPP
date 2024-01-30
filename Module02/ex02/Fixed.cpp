@@ -36,6 +36,8 @@ Fixed::~Fixed()
 	//std::cout << "Destructor called" << std::endl;
 }
 
+//operateurs de comparaison
+
 bool Fixed::operator>(const Fixed &copy) const
 {
 	return this->_value > copy._value;
@@ -66,6 +68,8 @@ bool Fixed::operator!=(const Fixed &copy) const
 	return this->_value != copy._value;
 }
 
+//operateurs arithmetiques
+
 Fixed Fixed::operator+(const Fixed &copy) const
 {
 	return Fixed(this->toFloat() + copy.toFloat());
@@ -86,31 +90,35 @@ Fixed Fixed::operator/(const Fixed &copy) const
 	return Fixed(this->toFloat() / copy.toFloat());
 }
 
+//operateurs d'incrementation et de decrementation
+
 Fixed& Fixed::operator++()
 {
-	this->_value++;
-	return *this;
+	this->_value++; //on incremente la valeur de l'objet courant
+	return *this; //on retourne l'objet courant
 }
 
 Fixed Fixed::operator++(int)
 {
-	Fixed temp = *this;
-	++(*this);
-	return temp;
+	Fixed temp = *this; //on cree un objet temporaire qui va stocker la valeur de l'objet courant
+	++(*this); //on incremente la valeur de l'objet courant
+	return temp; //on retourne l'objet courant
 }
 
 Fixed& Fixed::operator--()
 {
-	this->_value--;
-	return *this;
+	this->_value--; //on decremente la valeur de l'objet courant
+	return *this; //on retourne l'objet courant
 }
 
 Fixed Fixed::operator--(int)
 {
-	Fixed temp = *this;
-	--(*this);
-	return temp;
+	Fixed temp = *this; //on cree un objet temporaire qui va stocker la valeur de l'objet courant
+	--(*this); //on decremente la valeur de l'objet courant
+	return temp; //on retourne l'objet courant
 }
+
+//Maximum and minimum
 
 Fixed& Fixed::min(Fixed &a, Fixed &b)
 {
