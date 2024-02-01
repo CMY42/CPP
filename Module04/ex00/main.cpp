@@ -1,6 +1,8 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
@@ -18,8 +20,20 @@ int main()
 	delete j; // Doit afficher "Dog destructor called"
 	delete meta; // Doit afficher "Animal destructor called"
 
-	// Implement and test WrongAnimal and WrongCat if necessary
-	///////////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!///////////////////////
+	// WrongAnimal et WrongCat sont des classes qui ne sont pas liées à Animal
+	// et Cat. Elles ne doivent pas avoir de destructeur virtuel.
+	// Permets de voir la différence entre un destructeur virtuel et un
+	// destructeur non virtuel.
+	// Abscence de polymorphisme en raison de l'absence du mot clé virtual.
+	const WrongAnimal* wrongMeta = new WrongAnimal();
+	const WrongAnimal* wrongCat = new WrongCat();
+
+	std::cout << wrongCat->getType() << " " << std::endl;
+	wrongCat->makeSound();
+	wrongMeta->makeSound();
+
+	delete wrongCat;
+	delete wrongMeta;
 
 	return 0;
 }
