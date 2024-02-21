@@ -15,11 +15,11 @@ int main()
 	std::cout << *bureaucrat << std::endl;
 	try
 	{
-		bureaucrat->decrementGrade();
+		bureaucrat->decrementGrade(); // on essaie de diminuer le grade
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << e.what() << std::endl; //catch pour attraper l'exception
 	}
 	std::cout << *bureaucrat << std::endl;
 	delete bureaucrat;

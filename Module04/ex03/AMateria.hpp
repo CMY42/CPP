@@ -8,8 +8,7 @@
 class AMateria
 {
 protected:
-	std::string _type;
-	//unsigned int _xp;
+	std::string _type; //Attribut protege pour stocker le type de materia
 
 public:
 	AMateria();
@@ -18,8 +17,7 @@ public:
 	virtual ~AMateria();
 	AMateria &operator=(AMateria const &src);
 	std::string const &getType() const; //retourne le type de la materia
-	//unsigned int getXP() const;
-	virtual AMateria* clone() const = 0; //retourne un pointeur sur une copie de la materia
+	virtual AMateria* clone() const = 0; //retourne un pointeur sur une copie de la materia, classe abstraite
 	virtual void use(ICharacter &target); //effectue l’action de la materia
 };
 

@@ -5,6 +5,8 @@
 #include <string>
 #include <exception>
 
+class AForm;
+
 class Bureaucrat
 {
 private:
@@ -32,6 +34,8 @@ public:
 	public:
 		virtual const char *what() const throw(); //throw() signifie que la fonction ne peut pas lancer d'exception
 	};
+	void signForm(AForm &form);
+	void executeForm(AForm const &form);
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat); //surcharge de l'opérateur << pour afficher les informations de l'objet

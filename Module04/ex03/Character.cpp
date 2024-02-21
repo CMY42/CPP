@@ -31,6 +31,10 @@ Character::~Character()
 	}
 }
 
+//La copie profonde est nécessaire pour s'assurer que chaque Character a ses propres copies uniques des objets AMateria dans son inventaire,
+//plutôt que de partager des pointeurs vers les mêmes objets AMateria entre différents Character.
+//Cela évite des problèmes tels que des modifications inattendues ou des suppressions multiples du même objet,
+//ce qui pourrait mener à des comportements indéfinis ou à des erreurs d'exécution.
 Character &Character::operator=(Character const &src)
 {
 	//std::cout << "Character assignation operator" << std::endl;

@@ -10,7 +10,7 @@ public:
 	Cure(Cure const &src);
 	virtual ~Cure();
 	Cure &operator=(Cure const &src);
-	virtual AMateria* clone() const;
+	virtual AMateria* clone() const; //retourne un pointeur sur une copie de la materia, classe abstraite
 	virtual void use(ICharacter &target);
 };
 
