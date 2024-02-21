@@ -1,4 +1,5 @@
 #include "Character.hpp"
+#include "AMateria.hpp"
 
 Character::Character() : _name("default")
 {
@@ -33,12 +34,19 @@ Character::~Character()
 Character &Character::operator=(Character const &src)
 {
 	//std::cout << "Character assignation operator" << std::endl;
-	_name = src._name;
-	for (int i = 0; i < 4; i++)
+	if (this != &src)
 	{
-		if (_inventory[i])
-			delete _inventory[i];
-		_inventory[i] = src._inventory[i]->clone();
+		_name = src._name;
+		for (int i = 0; i < 4; i++)
+		{
+			if (_inventory[i])
+			{
+				delete _inventory[i]; //liberer la mememoire de l'ancien materia si elle existe
+				_inventory[i] = NULL;
+			}
+			if (src._inventory[i])
+				_inventory[i] = src._inventory[i]->clone(); // clonage seulement si la source n'est pas NULL
+		}
 	}
 	return *this;
 }

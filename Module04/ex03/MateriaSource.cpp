@@ -29,8 +29,12 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &src)
 	for (int i = 0; i < 4; i++)
 	{
 		if (_materias[i])
-			delete _materias[i];
-		_materias[i] = src._materias[i]->clone();
+		{
+			delete _materias[i]; //liberer la mememoire de l'ancien materia si elle existe
+			_materias[i] = NULL;
+		}
+		if (src._materias[i])
+			_materias[i] = src._materias[i]->clone(); // clonage seulement si la source n'est pas NULL
 	}
 	return *this;
 }
