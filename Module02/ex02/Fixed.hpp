@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/05 14:53:00 by cmansey           #+#    #+#             */
+/*   Updated: 2024/02/05 15:27:08 by cmansey          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
@@ -37,7 +49,7 @@ public:
 
 	static Fixed	&min(Fixed &a, Fixed &b); //renvoie la valeur la plus petite entre a et b
 	static Fixed	&max(Fixed &a, Fixed &b); //renvoie la valeur la plus grande entre a et b
-	static const Fixed	&min(const Fixed &a, const Fixed &b); //renvoie la valeur la plus petite entre a et b
+	static const Fixed	&min(const Fixed &a, const Fixed &b); //renvoie la valeur la plus petite entre a et b / Objets non modifiables (const &Fixed), modifie pas les objets passes et le resultat
 	static const Fixed	&max(const Fixed &a, const Fixed &b); //renvoie la valeur la plus grande entre a et b
 
 	int		getRawBits(void) const; //retourne la valeur du nombre a virgule fixe

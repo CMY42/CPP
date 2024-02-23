@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/05 14:52:55 by cmansey           #+#    #+#             */
+/*   Updated: 2024/02/05 15:29:04 by cmansey          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 Fixed::Fixed() : _value(0)
@@ -7,8 +19,8 @@ Fixed::Fixed() : _value(0)
 
 Fixed::Fixed(const Fixed &copy) : _value(copy._value)
 {
-	/*std::cout << "Copy constructor called" << std::endl;
-	*this = copy;*/
+	//std::cout << "Copy constructor called" << std::endl;
+	*this = copy;
 }
 
 Fixed::Fixed(const int intValue)
@@ -98,7 +110,7 @@ Fixed& Fixed::operator++()
 	return *this; //on retourne l'objet courant
 }
 
-Fixed Fixed::operator++(int)
+Fixed Fixed::operator++(int) //postincrementation
 {
 	Fixed temp = *this; //on cree un objet temporaire qui va stocker la valeur de l'objet courant
 	++(*this); //on incremente la valeur de l'objet courant
@@ -111,7 +123,7 @@ Fixed& Fixed::operator--()
 	return *this; //on retourne l'objet courant
 }
 
-Fixed Fixed::operator--(int)
+Fixed Fixed::operator--(int) //postdecrementation
 {
 	Fixed temp = *this; //on cree un objet temporaire qui va stocker la valeur de l'objet courant
 	--(*this); //on decremente la valeur de l'objet courant
