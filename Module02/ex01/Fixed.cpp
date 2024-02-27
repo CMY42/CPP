@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/05 14:52:45 by cmansey           #+#    #+#             */
+/*   Updated: 2024/02/05 15:11:27 by cmansey          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 Fixed::Fixed() : _value(0)
@@ -11,7 +23,7 @@ Fixed::Fixed(const Fixed &copy) : _value(copy._value)
 	*this = copy;
 }
 
-Fixed::Fixed(const int intValue)
+Fixed::Fixed(const int intValue) //Constructeur qui prend un int, valeur devalee a gauche par _bits
 {
 	std::cout << "Int constructor called" << std::endl;
 	_value = intValue << _bits;
@@ -46,12 +58,12 @@ void Fixed::setRawBits(int const raw)
 	_value = raw;
 }
 
-float Fixed::toFloat(void) const
+float Fixed::toFloat(void) const //convertit nombre a point fixe vers float
 {
 	return static_cast<float>(_value) / (1 << _bits); //static cast offre une meilleure  verification des types en C++
 }
 
-int Fixed::toInt(void) const
+int Fixed::toInt(void) const //convertit nombre a point fixe vers int
 {
 	return _value >> _bits;
 }
