@@ -22,6 +22,10 @@ Base *generate(void)
 }
 
 //Permet d'identifier le type reel d'un objet de type A, B ou C
+//Le dynamic_cast est utilisé pour tenter de convertir un pointeur vers une classe de base (Base*)
+//en un pointeur vers une classe dérivée spécifique (A*, B*, ou C*).
+//Si le dynamic_cast échoue, cela signifie que l'objet pointé par p n'est pas du type vers lequel on tente de le caster,
+//et le dynamic_cast retourne NULL (ou lance une exception std::bad_cast dans le cas d'une référence).
 void identify(Base *p)
 {
 	if (dynamic_cast<A *>(p)) //dynamic_cast permet d'identifier le type reel d'un objet, car std::type_info est interdit
@@ -30,6 +34,9 @@ void identify(Base *p)
 		std::cout << "B" << std::endl;
 	else if (dynamic_cast<C *>(p))
 		std::cout << "C" << std::endl;
+	else
+		std::cerr << "Error: unknown type" << std::endl; // Dans le cas ou le type reel n'est pas A, B ou C
+
 }
 
 //Permet d'identifier le type reel d'un objet de type A, B ou C
