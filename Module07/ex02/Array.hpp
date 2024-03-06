@@ -41,18 +41,27 @@ class Array
 		T &operator[](unsigned int index)
 		{
 			if (index >= _size)
-				throw std::exception();
+				throw OutOfBoundsException();
 			return _array[index];
 		}
 
 		const T& operator[](unsigned int index) const
 		{
-			if (index >= _size) throw std::exception();
-				return _array[index];
+			if (index >= _size)
+				throw OutOfBoundsException();
+			return _array[index];
 		}
 
 		//retourne la taille du tableau
 		unsigned int size() const { return _size; }
+
+		//La méthode what() de OutOfBoundsException est surchargée pour retourner un message d'erreur spécifique.
+		class OutOfBoundsException : public std::exception
+		{
+			public:
+				const char* what() const throw() override
+					return "Index out of bounds";
+		};
 
 	private :
 		T *_array;

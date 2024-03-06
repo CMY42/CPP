@@ -41,9 +41,9 @@ int main()
 	{
 		std::cout << "\nAttempting to access an element out of bounds:" << std::endl;
 		intArray[intArray.size()] = 10; // Ceci devrait lancer une exception
-	} catch (const std::exception& e) {
-		std::cout << "Exception caught: " << e.what() << std::endl;
 	}
+catch (const Array<int>::OutOfBoundsException& e) {
+        std::cout << "Caught an exception: " << e.what() << std::endl;}
 
 	return 0;
 }
