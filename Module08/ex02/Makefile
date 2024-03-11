@@ -1,4 +1,4 @@
-NAME = swap
+NAME = mutantstack
 
 SRCS = main.cpp
 
