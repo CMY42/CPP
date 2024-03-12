@@ -55,8 +55,10 @@ void ScalarConverter::toInt(double value)
 void ScalarConverter::toFloat(double value)
 {
 	std::cout << "float: ";
-	if (std::isnan(value) || std::isinf(value))
+	if (std::isnan(value))
 		std::cout << "nanf" << std::endl; //nanf pour Not a Number ou infini
+	else if (std::isinf(value))
+		std::cout << (value > 0 ? "+inff" : "-inff") << std::endl;
 	else
 		std::cout << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" << std::endl;
 }
@@ -66,8 +68,10 @@ void ScalarConverter::toFloat(double value)
 void ScalarConverter::toDouble(double value)
 {
 	std::cout << "double: ";
-	if (std::isnan(value) || std::isinf(value))
+	if (std::isnan(value))
 		std::cout << "nan" << std::endl; //nan pour Not a Number ou infini
+	else if (std::isinf(value))
+		std::cout << (value > 0 ? "+inf" : "-inf") << std::endl;
 	else
 		std::cout << std::fixed << std::setprecision(1) << value << std::endl;
 }
