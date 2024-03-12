@@ -10,7 +10,7 @@
 //La désérialisation est le processus inverse : reconstruire l'objet à partir du format sérialisé.
 int main()
 {
-	Data myData{.info = "Test info"};
+	Data myData("Test info");
 
 	uintptr_t raw = Serializer::serialize(&myData);
 	Data* ptr = Serializer::deserialize(raw);

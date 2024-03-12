@@ -6,6 +6,7 @@
 struct Data
 {
 	std::string info;
+	Data(const std::string& info) : info(info) {}
 };
 
 #endif

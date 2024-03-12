@@ -28,7 +28,10 @@ void ScalarConverter::convert(const std::string &literal)
 }
 
 //static_cast car permet de convertir explicitement d'un type a un autre a compile time
-//c'est la maniere recommandee en C++ pour convertir des types
+//le compilateur verifie la validite a la conversion, alors que dynamic cast a l'execution
+//c'est la maniere recommandee en C++ pour convertir des types de base et pour les conversions ascendantes et descendantes dans les hierarchies de classe
+//a condition d'etre sur de la validite de l'operation
+//bon equilibre entre securite et flexibilite
 void ScalarConverter::toChar(double value)
 {
 	std::cout << "char: ";
