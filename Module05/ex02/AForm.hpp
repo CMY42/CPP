@@ -31,7 +31,7 @@ public:
 
 	// Fonctions membres
 	void beSigned(const Bureaucrat &bureaucrat);
-	virtual void execute(Bureaucrat const &executor) const = 0; // Fonction virtuelle pure
+	virtual void execute(Bureaucrat const &executor) const = 0; // Fonction virtuelle pure, classe abstraite
 
 	// Exceptions
 	class GradeTooHighException : public std::exception
