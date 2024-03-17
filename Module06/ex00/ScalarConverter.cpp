@@ -28,7 +28,10 @@ void ScalarConverter::convert(const std::string &literal)
 }
 
 //static_cast car permet de convertir explicitement d'un type a un autre a compile time
-//c'est la maniere recommandee en C++ pour convertir des types
+//le compilateur verifie la validite a la conversion, alors que dynamic cast a l'execution
+//c'est la maniere recommandee en C++ pour convertir des types de base et pour les conversions ascendantes et descendantes dans les hierarchies de classe
+//a condition d'etre sur de la validite de l'operation
+//bon equilibre entre securite et flexibilite
 void ScalarConverter::toChar(double value)
 {
 	std::cout << "char: ";
@@ -52,8 +55,10 @@ void ScalarConverter::toInt(double value)
 void ScalarConverter::toFloat(double value)
 {
 	std::cout << "float: ";
-	if (std::isnan(value) || std::isinf(value))
+	if (std::isnan(value))
 		std::cout << "nanf" << std::endl; //nanf pour Not a Number ou infini
+	else if (std::isinf(value))
+		std::cout << (value > 0 ? "+inff" : "-inff") << std::endl;
 	else
 		std::cout << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" << std::endl;
 }
@@ -63,8 +68,10 @@ void ScalarConverter::toFloat(double value)
 void ScalarConverter::toDouble(double value)
 {
 	std::cout << "double: ";
-	if (std::isnan(value) || std::isinf(value))
+	if (std::isnan(value))
 		std::cout << "nan" << std::endl; //nan pour Not a Number ou infini
+	else if (std::isinf(value))
+		std::cout << (value > 0 ? "+inf" : "-inf") << std::endl;
 	else
 		std::cout << std::fixed << std::setprecision(1) << value << std::endl;
 }
