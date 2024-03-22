@@ -29,7 +29,7 @@ int Span::shortestSpan()
 	if (_numbers.size() < 2)
 		throw NoSpanException();
 	std::vector<int> sorted = _numbers;
-	std::sort(sorted.begin(), sorted.end());
+	std::sort(sorted.begin(), sorted.end()); //std::sort permet de trier la liste des nombres avant de calculer le plus court et le plus long span
 	int min = sorted[1] - sorted[0];
 	for (unsigned int i = 2; i < sorted.size(); i++)
 	{

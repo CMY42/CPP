@@ -45,7 +45,8 @@ private:
 template <typename Iterator>
 void Span::addNumber(Iterator begin, Iterator end)
 {
-	auto distance = std::distance(begin, end);
+	typedef typename std::iterator_traits<Iterator>::difference_type difference_type;
+	difference_type distance = std::distance(begin, end);
 	if (_numbers.size() + distance > _n)
 		throw FullSpanException();
 

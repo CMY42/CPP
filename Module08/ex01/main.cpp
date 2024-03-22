@@ -15,7 +15,15 @@ int main() {
 	std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
 
 	// Test de l'ajout de plusieurs nombres en utilisant une plage d'itérateurs.
-	std::vector<int> moreNumbers = {1, 2, 13, 37, 42};
+	//addNumber prend une plage d'itérateurs comme argument,
+	//ce qui permet d'ajouter plusieurs nombres de manière plus pratique.
+	std::vector<int> moreNumbers;
+	moreNumbers.push_back(1);
+	moreNumbers.push_back(2);
+	moreNumbers.push_back(13);
+	moreNumbers.push_back(37);
+	moreNumbers.push_back(42);
+
 	sp.addNumber(moreNumbers.begin(), moreNumbers.end());
 
 	// Affiche le plus court et le plus long span.
@@ -38,7 +46,7 @@ int main() {
 
 	try
 	{
-		std::cout << "Shortest Span Test, " << smallSpan.shortestSpan() << std::endl; // Ceci devrait déclencher une exception.
+		std::cout << "Shortest Span Test, " << smallSpan.shortestSpan() << std::endl; // déclenche une exception.
 	}
 	catch (const std::exception& e)
 	{
@@ -47,7 +55,7 @@ int main() {
 
 	try
 	{
-		std::cout << "Longest Span Test, " << smallSpan.longestSpan() << std::endl; // Ceci devrait déclencher une exception.
+		std::cout << "Longest Span Test, " << smallSpan.longestSpan() << std::endl; // déclenche une exception.
 	}
 	catch (const std::exception& e)
 	{

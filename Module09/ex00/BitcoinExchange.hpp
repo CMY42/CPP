@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <sstream> // pour std::stringstream permet de parser les lignes du fichier csv
 #include <stdexcept> // pour std::invalid_argument
+#include <regex> // pour std::regex
 
 //La std::map est un container qui stocke des éléments sous forme de paires clé-valeur.
 //Permet d'associer directement une date spécifique (la clé, sous forme de std::string) à un prix du Bitcoin (la valeur, sous forme de double).

@@ -29,7 +29,7 @@ void BitcoinExchange::loadPriceDatabase(const std::string& dbPath)
 
 double BitcoinExchange::findPriceForDate(const std::string& date) const
 {
-	auto it = priceDatabase.lower_bound(date);
+	std::map<std::string, double>::const_iterator it = priceDatabase.lower_bound(date);
 	if (it != priceDatabase.begin() && (it == priceDatabase.end() || it->first != date))
 		--it; // Utilise l'élément précédent si la date n'est pas trouvée
 	return it->second;
@@ -54,6 +54,26 @@ void BitcoinExchange::processInputFile(const std::string& inputPath)
 		}
 		date.erase(remove_if(date.begin(), date.end(), isspace), date.end()); // Nettoyage des espaces
 		valueStr.erase(remove_if(valueStr.begin(), valueStr.end(), isspace), valueStr.end()); // Nettoyage des espaces
+
+		// Vérifier si la date est au bon format (AAAA-MM-JJ)
+		std::regex dateRegex("\\d{4}-\\d{2}-\\d{2}");
+		if (!std::regex_match(date, dateRegex))
+		{
+			std::cerr << "Error: bad date format => " << date << std::endl;
+			continue;
+		}
+
+		// Vérifier si la date est valide
+		std::istringstream dateStream(date);
+		int year, month, day;
+		char dash;
+		dateStream >> year >> dash >> month >> dash >> day;
+
+		if (!dateStream || (month < 1 || month > 12) || (day < 1 || day > 31))
+		{
+			std::cerr << "Error: invalid date => " << date << std::endl;
+			continue;
+		}
 
 		try
 		{

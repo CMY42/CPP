@@ -4,6 +4,7 @@
 int main()
 {
 	// Test avec un tableau d'entiers
+	// int donc type simple
 	Array<int> intArray(5);
 	std::cout << "Testing int array:" << std::endl;
 	for (unsigned int i = 0; i < intArray.size(); ++i)
@@ -14,6 +15,7 @@ int main()
 	std::cout << std::endl << "Size of int array: " << intArray.size() << std::endl;
 
 	// Test avec un tableau de chaînes de caractères
+	// chaine de caractere donc type plus complique
 	Array<std::string> stringArray(3);
 	stringArray[0] = "Hello";
 	stringArray[1] = "World";
@@ -42,8 +44,10 @@ int main()
 		std::cout << "\nAttempting to access an element out of bounds:" << std::endl;
 		intArray[intArray.size()] = 10; // Ceci devrait lancer une exception
 	}
-catch (const Array<int>::OutOfBoundsException& e) {
-        std::cout << "Caught an exception: " << e.what() << std::endl;}
+	catch (const Array<int>::OutOfBoundsException& e)
+	{
+		std::cout << "Caught an exception: " << e.what() << std::endl;
+	}
 
 	return 0;
 }

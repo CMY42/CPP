@@ -16,4 +16,11 @@ void iter(T *array, size_t length, void (*function)(T const &))
 	}
 }
 
+// Fonction template qui affiche le parametre passe en argument
+template <typename T>
+void print(T const &x)
+{
+	std::cout << x << std::endl;
+}
+
 #endif

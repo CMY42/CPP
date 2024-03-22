@@ -44,15 +44,15 @@ int main()
 	// On ajoute 2 à l'original, puis on affiche les trois stacks pour vérifier que les copies sont indépendantes
 	originalStack.push(2);
 	std::cout << "Original stack after modification:" << std::endl;
-	for (auto it = originalStack.begin(); it != originalStack.end(); ++it)
+	for (MutantStack<int>::iterator it = originalStack.begin(); it != originalStack.end(); ++it)
 		std::cout << *it << std::endl;
 
 	std::cout << "Copied stack should remain unchanged:" << std::endl;
-	for (auto it = copiedStack.begin(); it != copiedStack.end(); ++it)
+	for (MutantStack<int>::iterator it = originalStack.begin(); it != originalStack.end(); ++it)
 		std::cout << *it << std::endl;
 
 	std::cout << "Assigned stack should also remain unchanged:" << std::endl;
-	for (auto it = assignedStack.begin(); it != assignedStack.end(); ++it)
+	for (MutantStack<int>::iterator it = originalStack.begin(); it != originalStack.end(); ++it)
 		std::cout << *it << std::endl;*/
 
 	// test avec std::list pour comparer

@@ -59,8 +59,10 @@ class Array
 		class OutOfBoundsException : public std::exception
 		{
 			public:
-				const char* what() const throw() override
+				const char* what() const throw()
+				{
 					return "Index out of bounds";
+				}
 		};
 
 	private :

@@ -5,6 +5,7 @@
 #include <exception> // std::exception
 
 // exception personnalisée pour signaler qu'un élément n'a pas été trouvé
+// herite de std::exception
 class NotFoundException : public std::exception
 {
 public:
