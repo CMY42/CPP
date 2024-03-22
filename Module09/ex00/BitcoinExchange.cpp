@@ -53,7 +53,7 @@ void BitcoinExchange::processInputFile(const std::string& inputPath)
 			continue;
 		}
 		date.erase(remove_if(date.begin(), date.end(), isspace), date.end()); // Nettoyage des espaces
-		valueStr.erase(remove_if(valueStr.begin(), valueStr.end(), isspace), valueStr.end()); // Nettoyage des espaces
+		valueStr.erase(remove_if(valueStr.begin(), valueStr.end(), isspace), valueStr.end());
 
 		// Vérifier si la date est au bon format (AAAA-MM-JJ)
 		std::regex dateRegex("\\d{4}-\\d{2}-\\d{2}");

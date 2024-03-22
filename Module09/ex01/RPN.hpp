@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include <stack> // pour std::stack<double>, permet de stocker les opérandes CONTAINER
-#include <vector>
 #include <sstream> // pour std::istringstream
 #include <stdexcept> // pour std::runtime_error
 
